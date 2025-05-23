@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech | Audio spatialization</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/audio.css">
+    <link rel="icon" type="png" href="../assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../DataSet Page/speech.html">DataSet</a>
+            <a href="speech.html" class="active">Audio Spatialization</a>
+            <a href="../TTS.html">Spatial TTS</a>
+            <a href="../Spatial music.html">Spatial Music</a>
+            <a href="../Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Audio Spatialization</h1>
+                <div class="text-content">
+                <p><strong>Audio Spatialization</strong> creates immersive 3D soundscapes by simulating how sound interacts with space, enabling realistic perception of distance, direction, and movement in virtual environments.</p>
+                </div>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="../assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="../assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+     <!-- 子导航栏 -->
+    <div class="sub-navbar">
+        <ul class="subnav-links">
+            <a href="speech.html" class="active">MRSSpeech</a>
+            <a href="sing.html">MRSSing</a>
+            <a href="music.html">MRSMusic</a>
+            <a href="audio.html">MRSLife</a>
+        </ul>
+    </div>
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <section id="part1" class="content-section">
+                <div class="hint-container">
+                    <img src="../assets/photo/headphone.png" alt="headphone">
+                    <p>Please wear headphones to listen.</p>
+                </div>
+                <h1>Demo</h1>
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <p><strong>Text:</strong> 你说回去，是不是想和山贼，商量什么？办不到</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-right to further front-right, then pauses.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《七武士》电影剧本_part1_缩混_cut_1141.743_1150.832_B/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《七武士》电影剧本_part1_缩混_cut_1141.743_1150.832_B/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《七武士》电影剧本_part1_缩混_cut_1141.743_1150.832_B/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《七武士》电影剧本_part1_缩混_cut_1141.743_1150.832_B/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <p><strong>Text:</strong>这里是我的宫殿，这里的一切应由我来指挥。我不是你的犯人，而你却是我的客人</p>
+                        <p><strong>Spatial Prompt:</strong> [Static] Source locates at right-back up quadrant, and pauses in right-back up quadrant.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《埃及妖后》电影剧本1_缩混_cut_556.746_566.573_A/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《埃及妖后》电影剧本1_缩混_cut_556.746_566.573_A/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《埃及妖后》电影剧本1_缩混_cut_556.746_566.573_A/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《埃及妖后》电影剧本1_缩混_cut_556.746_566.573_A/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <p><strong>Text:</strong>挂着联合国旗帜的白色装甲车，一辆辆行驶在通向波黑的路上</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-left to back-left, passing through center, then pauses at back-left.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《无主之地》电影剧本_缩混_cut_590.165_595.188_B/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《无主之地》电影剧本_缩混_cut_590.165_595.188_B/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《无主之地》电影剧本_缩混_cut_590.165_595.188_B/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/speech/《无主之地》电影剧本_缩混_cut_590.165_595.188_B/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+            </section>
+            
+        </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+        // 在DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取导航栏元素
+            const subNavbar = document.querySelector('.sub-navbar');
+            
+            // 创建占位元素防止内容跳动
+            const placeholder = document.createElement('div');
+            placeholder.style.display = 'none'; // 初始隐藏
+            subNavbar.parentNode.insertBefore(placeholder, subNavbar.nextSibling);
+
+            // 获取初始位置和高度
+            let stickyOffset = subNavbar.offsetTop;
+            const navHeight = subNavbar.offsetHeight;
+
+            // 滚动处理函数（带防抖）
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop  >= stickyOffset - 83) {
+                    subNavbar.classList.add('fixed');
+                    placeholder.style.display = 'block';
+                    placeholder.style.height = navHeight + 'px';
+                } else {
+                    subNavbar.classList.remove('fixed');
+                    placeholder.style.display = 'none';
+                }
+            }
+
+            // 优化滚动监听
+            let isScrolling;
+            window.addEventListener('scroll', function() {
+                window.cancelAnimationFrame(isScrolling);
+                isScrolling = window.requestAnimationFrame(handleScroll);
+            });
+
+            // 窗口大小变化时重新计算位置
+            window.addEventListener('resize', function() {
+                stickyOffset = subNavbar.offsetTop;
+            });
+        });
+    </script>
+</body>
+</html>

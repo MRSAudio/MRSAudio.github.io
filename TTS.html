@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial TTS</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/audio.css">
+    <link rel="icon" type="png" href="assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style> 
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="DataSet Page/speech.html">DataSet</a>
+            <a href="Audio spatialization Page/speech.html">Audio Spatialization</a>
+            <a href="TTS.html" class="active">Spatial TTS</a>
+            <a href="Spatial music.html">Spatial Music</a>
+            <a href="Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Spatial TTS</h1>
+                <div class="text-content">
+                <p><strong>TTS (Text-to-Speech) </strong>generates lifelike soundscapes from textual descriptions using AI synthesis, enabling immersive audio experiences for digital content and interactive applications.</p>
+                </div>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <div class="hint-container">
+                    <img src="../assets/photo/headphone.png" alt="headphone">
+                    <p>Please wear headphones to listen.</p>
+            </div>
+            <h1>Demo</h1>
+            <div class="audio-container">
+                <div class="text-container1">
+                    <p><strong>Text: </strong> 我情愿像甫乐一样死了一了百了而且革离信任你</p>
+                    <p><strong>Phoneme Sequence: </strong> uo, q, ing, van, x, iang, f, u, l, e, i, iang, s, i, l, e, &lt;SP&gt;, i, l, iao, b, ai, l, iao, &lt;SP&gt;, er, q, ie, g, e, l, i, x, in, r, en, &lt;SP&gt;, n, i, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                    <p><strong>Spatial Prompt: </strong> [DYNAMIC] Moves from front-right to further front-right.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/binaural.png"
+                            src="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/binaural_geowarp.png"
+                            src="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/binaural_geowarp.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>CosyVoice + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/cosyvoice.png"
+                            src="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/cosyvoice.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>F5-TTS + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/f5-tts.png"
+                            src="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/f5-tts.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(speech)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/isdrama.png"
+                            src="assets/wav/speech/《墨攻》剧本_part2_缩混_cut_551.482_556.165_A/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audio-container">
+                <div class="text-container1">
+                    <p><strong>Text: </strong> 乔伊别说了爸爸他有点不舒服</p>
+                    <p><strong>Phoneme Sequence: </strong> q, iao, i, &lt;SP&gt;, b, ie, sh, uo, l, e, &lt;SP&gt;, b, a, b, a, t, a, iou, d, ian, b, u, sh, u, f, u, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                    <p><strong>Spatial Prompt: </strong> [Static] Source locates at right up quadrant and pauses in right up quadrant.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/binaural.png"
+                            src="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/binaural_geowarp.png"
+                            src="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/binaural_geowarp.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>CosyVoice + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/cosyvoice.png"
+                            src="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/cosyvoice.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>F5-TTS + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/f5-tts.png"
+                            src="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/f5-tts.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(speech)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/isdrama.png"
+                            src="assets/wav/speech/《内心世界》电影剧本_part2_缩混_cut_1501.781_1506.065_A/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="audio-container">
+                <div class="text-container1">
+                    <p><strong>Text: </strong> 不必介意我用二楼卧室的电话打一下说罢走上楼</p>
+                    <p><strong>Phoneme Sequence: </strong> b, u, b, i, j, ie, i, &lt;SP&gt;, uo, iong, er, l, ou, uo, sh, i, d, e, d, ian, h, ua, d, a, i, &lt;SP&gt;, x, ia, &lt;SP&gt;, sh, uo, b, a, z, ou, sh, ang, &lt;SP&gt;, l, ou, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                    <p><strong>Spatial Prompt: </strong> [Static] Source locates at left-front up quadrant, and pauses in left-front up quadrant.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/binaural.png"
+                            src="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/binaural_geowarp.png"
+                            src="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/binaural_geowarp.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>CosyVoice + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/cosyvoice.png"
+                            src="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/cosyvoice.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>F5-TTS + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/f5-tts.png"
+                            src="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/f5-tts.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(speech)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/isdrama.png"
+                            src="assets/wav/speech/《晴天，有时杀人》电影剧本_3_4_缩混_cut_1265.946_1271.750_B/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="audio-container">
+                <div class="text-container1">
+                    <p><strong>Text: </strong> 阿米这两天来我已经跑过三十五个地方了那些家伙大部分连门都不让我进</p>
+                    <p><strong>Phoneme Sequence: </strong> a, m, i, &lt;SP&gt;, zh, e, l, iang, t, ian, l, ai, &lt;SP&gt;, uo, i, j, ing, p, ao, g, uo, s, an, sh, i, u, g, e, d, i, f, ang, l, e, &lt;SP&gt;, n, ei, &lt;SP&gt;, x, ie, j, ia, h, uo, d, a, b, u, f, en, l, ian, m, en, &lt;SP&gt;, d, ou, b, u, r, ang, uo, j, in, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                    <p><strong>Spatial Prompt: </strong> [DYNAMIC] Moves from behind-right to front-right, passing through center right, then pauses.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/binaural.png"
+                            src="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/binaural_geowarp.png"
+                            src="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/binaural_geowarp.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>CosyVoice + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/cosyvoice.png"
+                            src="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/cosyvoice.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>F5-TTS + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/f5-tts.png"
+                            src="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/f5-tts.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(speech)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/isdrama.png"
+                            src="assets/wav/speech/《拳击运动员的悲歌》电影剧本_3_4_缩混_cut_550.490_558.918_B/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+    </script>
+</body>
+</html>

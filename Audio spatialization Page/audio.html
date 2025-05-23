@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio | Audio spatialization</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/audio.css">
+    <link rel="icon" type="png" href="../assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../DataSet Page/speech.html">DataSet</a>
+            <a href="speech.html" class="active">Audio Spatialization</a>
+            <a href="../TTS.html">Spatial TTS</a>
+            <a href="../Spatial music.html">Spatial Music</a>
+            <a href="../Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Audio Spatialization</h1>
+                <div class="text-content">
+                <p><strong>Audio Spatialization</strong> creates immersive 3D soundscapes by simulating how sound interacts with space, enabling realistic perception of distance, direction, and movement in virtual environments.</p>
+                </div>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="../assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="../assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+     <!-- 子导航栏 -->
+    <div class="sub-navbar">
+        <ul class="subnav-links">
+            <a href="speech.html">MRSSpeech</a>
+            <a href="sing.html">MRSSing</a>
+            <a href="music.html">MRSMusic</a>
+            <a href="audio.html" class="active">MRSLife</a>
+        </ul>
+    </div>
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <section id="part1" class="content-section">
+                <div class="hint-container">
+                    <img src="../assets/photo/headphone.png" alt="headphone">
+                    <p>Please wear headphones to listen.</p>
+                </div>
+                <h1>Demo</h1>
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <div class="img-container">
+                            <img src="../assets/audio/sound/clash_cymbals_segment_6_45/photo.png" style="width: 30%;">
+                        </div>
+                        <p><strong>Sound Event:</strong> clash symbals</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-right up to front-right higher, then to front-right down.</p>
+                    </div>
+                    <div class="audio-container2">
+                        
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/clash_cymbals_segment_6_45/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/clash_cymbals_segment_6_45/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/clash_cymbals_segment_6_45/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/clash_cymbals_segment_6_45/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+                
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <div class="img-container">
+                            <img src="../assets/audio/sound/doubletoneblock_segment_4_60/photo.png" style="width: 15%;">
+                        </div>
+                        <p><strong>Sound Event:</strong> doubletoneblock</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-left down to further front-right up, passing through center front.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/doubletoneblock_segment_4_60/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/doubletoneblock_segment_4_60/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/doubletoneblock_segment_4_60/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/doubletoneblock_segment_4_60/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <div class="img-container">
+                            <img src="../assets/audio/sound/rainstick_segment_1_74/photo.png" style="width: 20%;">
+                        </div>
+                        <p><strong>Sound Event:</strong> rainstick</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-right to center-back down, then settles at center-back down.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/rainstick_segment_1_74/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/rainstick_segment_1_74/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/rainstick_segment_1_74/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/rainstick_segment_1_74/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container4">
+                        <div class="img-container">
+                            <img src="../assets/audio/sound/slitdrum_segment_5_28/photo.png" style="width: 15%;">
+                        </div>
+                        <p><strong>Sound Event:</strong> slitdrum</p>
+                        <p><strong>Spatial Prompt:</strong> [DYNAMIC] Moves from front-left up, briefly shifts back at 0.5s and 4.0s, settles near front-right level.</p>
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>Mono</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/slitdrum_segment_5_28/mono.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="../assets/photo/kuohao.png" alt="kuohao" class="img-content" style="width: 60%;">
+                    </div>
+                    <div class="audio-container2">
+                        <div class="audio-content">
+                            <p>GT</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/slitdrum_segment_5_28/binaural.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>DSP</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/slitdrum_segment_5_28/binaural_geowarp.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="audio-content">
+                            <p>Bingrad</p>
+                            <audio controls>
+                                <source src="../assets/audio/sound/slitdrum_segment_5_28/spatialize.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>   
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+        // 在DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取导航栏元素
+            const subNavbar = document.querySelector('.sub-navbar');
+            
+            // 创建占位元素防止内容跳动
+            const placeholder = document.createElement('div');
+            placeholder.style.display = 'none'; // 初始隐藏
+            subNavbar.parentNode.insertBefore(placeholder, subNavbar.nextSibling);
+
+            // 获取初始位置和高度
+            let stickyOffset = subNavbar.offsetTop;
+            const navHeight = subNavbar.offsetHeight;
+
+            // 滚动处理函数（带防抖）
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop  >= stickyOffset - 83) {
+                    subNavbar.classList.add('fixed');
+                    placeholder.style.display = 'block';
+                    placeholder.style.height = navHeight + 'px';
+                } else {
+                    subNavbar.classList.remove('fixed');
+                    placeholder.style.display = 'none';
+                }
+            }
+
+            // 优化滚动监听
+            let isScrolling;
+            window.addEventListener('scroll', function() {
+                window.cancelAnimationFrame(isScrolling);
+                isScrolling = window.requestAnimationFrame(handleScroll);
+            });
+
+            // 窗口大小变化时重新计算位置
+            window.addEventListener('resize', function() {
+                stickyOffset = subNavbar.offsetTop;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing | Dataset</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/video.css">
+    <link rel="icon" type="png" href="../assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style>
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .video-right {
+            width: 80%;
+            height: 70%;
+            position: relative;
+            background: #000;
+        }
+
+        .prism-big-play-btn {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 48%;
+            width: 36px;
+            height: 36px;
+            background: url("../assets/photo/play.png") no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            display: none; /* 默认隐藏，通过JS控制显示 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="speech.html" class="active">DataSet</a>
+            <a href="../Audio spatialization Page/speech.html">Audio Spatialization</a>
+            <a href="../TTS.html">Spatial TTS</a>
+            <a href="../Spatial music.html">Spatial Music</a>
+            <a href="../Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Dataset & Demo</h1>
+            </div>
+            <div class="text-content">
+                <p>The dataset comprises four real-world scenarios: <strong>MRSSpeech, MRSSing, MRSMusic and MRSLife </strong> each with multimodal annotations for spatial audio research</p>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="../assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="../assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+     <!-- 子导航栏 -->
+    <div class="sub-navbar">
+        <ul class="subnav-links">
+            <a href="speech.html">MRSSpeech</a>
+            <a href="sing.html"  class="active">MRSSing</a>
+            <a href="music.html">MRSMusic</a>
+            <a href="audio.html">MRSLife</a>
+        </ul>
+    </div>
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <section id="part1" class="content-section">
+                <div class="hint-container">
+                        <img src="../assets/photo/headphone.png" alt="headphone">
+                        <p>Please wear headphones to listen.</p>
+                </div>
+                <h1>Demo</h1>
+                <div class="video-container">
+                    <!-- 切换按钮 -->
+                    <div class="swiper-button swiper-button-prev">❮</div>
+                    <div class="video-right">
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="../assets/photo/video1-poster.png"
+                        ></video>
+                        <div id="playButton" class="prism-big-play-btn"></div>
+                    </div>
+                    <!-- 分页器 -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button swiper-button-next">❯</div>
+                </div>
+
+                <section id="part1" class="content-section">
+                    <h1>Statistics</h1>
+                    <div class="img-container">
+                        <img src="../assets/photo/dataset/sing.png" alt="head">
+                    </div>
+                </section>
+            </section>
+        </div>
+        </div>
+    </main>
+
+
+     <script>
+        //子导航栏不移动代码逻辑
+        // 在DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取导航栏元素
+            const subNavbar = document.querySelector('.sub-navbar');
+            
+            // 创建占位元素防止内容跳动
+            const placeholder = document.createElement('div');
+            placeholder.style.display = 'none'; // 初始隐藏
+            subNavbar.parentNode.insertBefore(placeholder, subNavbar.nextSibling);
+
+            // 获取初始位置和高度
+            let stickyOffset = subNavbar.offsetTop;
+            const navHeight = subNavbar.offsetHeight;
+
+            // 滚动处理函数（带防抖）
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop  >= stickyOffset - 80) {
+                    subNavbar.classList.add('fixed');
+                    placeholder.style.display = 'block';
+                    placeholder.style.height = navHeight + 'px';
+                } else {
+                    subNavbar.classList.remove('fixed');
+                    placeholder.style.display = 'none';
+                }
+            }
+
+            // 优化滚动监听
+            let isScrolling;
+            window.addEventListener('scroll', function() {
+                window.cancelAnimationFrame(isScrolling);
+                isScrolling = window.requestAnimationFrame(handleScroll);
+            });
+
+            // 窗口大小变化时重新计算位置
+            window.addEventListener('resize', function() {
+                stickyOffset = subNavbar.offsetTop;
+            });
+        });
+
+
+
+        // 视频数据配置
+        const videoList = [
+            {
+                src: '../assets/video/sing/sing1.mp4',
+                poster: '../assets/photo/sing/sing1.png'
+            },
+            {
+                src: '../assets/video/sing/sing2.mp4',
+                poster: '../assets/photo/sing/sing2.png'
+            },
+            {
+                src: '../assets/video/sing/sing3.mp4',
+                poster: '../assets/photo/sing/sing3.png'
+            },
+            {
+                src: '../assets/video/sing/sing4.mp4',
+                poster: '../assets/photo/sing/sing4.png'
+            },
+            {
+                src: '../assets/video/sing/sing5.mp4',
+                poster: '../assets/photo/sing/sing5.png'
+            },
+        ];
+
+        // 核心变量
+        let currentIndex = 0;
+        const videoElement = document.getElementById('myVideo');
+        const playButton = document.getElementById('playButton');
+        const pagination = document.querySelector('.swiper-pagination');
+
+        // 初始化分页器
+        function initPagination() {
+            pagination.innerHTML = '';
+            videoList.forEach((_, index) => {
+                const bullet = document.createElement('div');
+                bullet.className = `swiper-pagination-bullet ${
+                    index === 0 ? 'swiper-pagination-bullet-active' : ''
+                }`;
+                bullet.addEventListener('click', () => changeVideo(index));
+                pagination.appendChild(bullet);
+            });
+        }
+
+        // 更新分页器状态
+        function updatePagination() {
+            const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+            bullets.forEach((bullet, index) => {
+                bullet.classList.toggle(
+                    'swiper-pagination-bullet-active',
+                    index === currentIndex
+                );
+            });
+        }
+
+        // 初始化视频
+        function initVideo() {
+            if(videoList.length > 0) {
+                videoElement.src = videoList[currentIndex].src;
+                videoElement.poster = videoList[currentIndex].poster;
+                videoElement.load();
+            }
+        }
+
+        // 视频切换函数
+        function changeVideo(newIndex) {
+            if(newIndex < 0) newIndex = videoList.length - 1;
+            if(newIndex >= videoList.length) newIndex = 0;
+            
+            currentIndex = newIndex;
+            videoElement.pause();
+            videoElement.src = videoList[currentIndex].src;
+            videoElement.poster = videoList[currentIndex].poster;
+            videoElement.load();
+            playButton.style.display = 'block';
+            
+            updatePagination(); // 更新分页器状态
+        }
+
+        // 事件绑定
+        document.querySelector('.swiper-button-prev').addEventListener('click', () => {
+            changeVideo(currentIndex - 1);
+        });
+
+        document.querySelector('.swiper-button-next').addEventListener('click', () => {
+            changeVideo(currentIndex + 1);
+        });
+
+        // 播放状态控制
+        videoElement.addEventListener('play', () => {
+            playButton.style.display = 'none';
+        });
+
+        videoElement.addEventListener('pause', () => {
+            playButton.style.display = 'block';
+        });
+
+        // 自定义播放按钮控制
+        playButton.addEventListener('click', () => {
+            videoElement.play();
+        });
+
+        // 初始化
+        initPagination(); // 初始化分页器
+        initVideo();
+
+        // 自适应调整
+        window.addEventListener('resize', () => {
+            videoElement.style.height = videoElement.offsetWidth * 0.5625 + 'px';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Singing</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/audio.css">
+    <link rel="icon" type="png" href="assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style> 
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="DataSet Page/speech.html">DataSet</a>
+            <a href="Audio spatialization Page/speech.html">Audio Spatialization</a>
+            <a href="TTS.html">Spatial TTS</a>
+            <a href="Spatial music.html">Spatial Music</a>
+            <a href="Spatial sing.html" class="active">Spatial Singing</a>
+        </ul>
+    </nav>
+
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Spatial Singing</h1>
+                <div class="text-content">
+                <p><strong>Spatial Singing</strong> revolutionizes vocal expression by leveraging 3D audio algorithms to dynamically position and move human voices in real-time spatial environments, enabling immersive choral experiences for VR concerts, augmented reality storytelling, and interactive vocal installations.</p>
+                </div>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <div class="hint-container">
+                    <img src="../assets/photo/headphone.png" alt="headphone">
+                    <p>Please wear headphones to listen.</p>
+                </div>
+                <h1>Demo</h1>
+
+                <div class="audio-container">
+                    <div class="text-container1">
+                        <p><strong>Text: </strong> 才二十三现在的日子没有那么简单</p>
+                        <p><strong>Phoneme Sequence: </strong> &lt;AP&gt;, c, ai, ai, ai, er, sh, i, s, an, &lt;AP&gt;, x, ian, z, ai, ai, ai, d, e, r, i, z, i, &lt;AP&gt;, m, m, ei, iou, n, a, m, e, j, j, ian, d, an, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                        <p><strong>Spatial Prompt: </strong> [STATIC] Source locates at left-front up quadrant, and pauses in left-front up quadrant.</p>
+                    </div>
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>GT</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/才二十三/binaural.png"
+                                src="assets/wav/sing/才二十三/binaural.mp4"
+                            ></video>
+                        </div>
+                    </div> 
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>Mono + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/才二十三/spatialize.png"
+                                src="assets/wav/sing/才二十三/spatialize.mp4"
+                            ></video>
+                        </div>
+
+                        <div class="video-content1">
+                            <p>Rmssinger + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/才二十三/rmssinger.png"
+                                src="assets/wav/sing/才二十三/rmssinger.mp4"
+                            ></video>
+                        </div>
+                        <div class="video-content1">
+                            <p>ISDrama(sing)</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/才二十三/isdrama.png"
+                                src="assets/wav/sing/才二十三/isdrama.mp4"
+                            ></video>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="audio-container">
+                    <div class="text-container1">
+                        <p><strong>Text: </strong> 成都带不走的只有你</p>
+                        <p><strong>Phoneme Sequence: </strong> &lt;SP&gt;, ch, eng, d, u, &lt;SP&gt;, d, ai, b, u, z, ou, d, e, &lt;SP&gt;, zh, i, i, iou, iou, n, i, i, i, &lt;SP&gt; <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                        <p><strong>Spatial Prompt: </strong> [STATIC] Source locates at right-front up quadrant, and pauses in right-front up quadrant.</p>
+                    </div>
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>GT</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/成都/binaural.png"
+                                src="assets/wav/sing/成都/binaural.mp4"
+                            ></video>
+                        </div>
+                    </div> 
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>Mono + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/成都/spatialize.png"
+                                src="assets/wav/sing/成都/spatialize.mp4"
+                            ></video>
+                        </div>
+
+                        <div class="video-content1">
+                            <p>Rmssinger + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/成都/rmssinger.png"
+                                src="assets/wav/sing/成都/rmssinger.mp4"
+                            ></video>
+                        </div>
+                        <div class="video-content1">
+                            <p>ISDrama(sing)</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/成都/isdrama.png"
+                                src="assets/wav/sing/成都/isdrama.mp4"
+                            ></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container1">
+                        <p><strong>Text: </strong> 你可以不用记得我的好</p>
+                        <p><strong>Phoneme Sequence: </strong> &lt;AP&gt;, n, i, k, e, e, i, b, u, u, iong, j, i, i, d, e, uo, uo, d, e, h, ao <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                        <p><strong>Spatial Prompt: </strong> [STATIC] Source locates at right up quadrant, and pauses in right up quadrant.</p>
+                    </div>
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>GT</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/刚刚好/binaural.png"
+                                src="assets/wav/sing/刚刚好/binaural.mp4"
+                            ></video>
+                        </div>
+                    </div> 
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>Mono + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/刚刚好/spatialize.png"
+                                src="assets/wav/sing/刚刚好/spatialize.mp4"
+                            ></video>
+                        </div>
+
+                        <div class="video-content1">
+                            <p>Rmssinger + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/刚刚好/rmssinger.png"
+                                src="assets/wav/sing/刚刚好/rmssinger.mp4"
+                            ></video>
+                        </div>
+                        <div class="video-content1">
+                            <p>ISDrama(sing)</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/刚刚好/isdrama.png"
+                                src="assets/wav/sing/刚刚好/isdrama.mp4"
+                            ></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-container">
+                    <div class="text-container1">
+                        <p><strong>Text: </strong> 穿过时间的缝隙它依然真实地</p>
+                        <p><strong>Phoneme Sequence: </strong> ch, uan, g, uo, sh, i, j, ian, ian, d, e, f, eng, x, i, &lt;AP&gt;, t, a, a, i, i, r, an, zh, en, sh, i, d, e <em>(&lt;SP&gt; represents silence segments, and &lt;AP&gt; breaths sound)</em></p>
+                        <p><strong>Spatial Prompt: </strong> [STATIC] Source locates at front up quadrant, and pauses in front up quadrant.</p>
+                    </div>
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>GT</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/水星记/binaural.png"
+                                src="assets/wav/sing/水星记/binaural.mp4"
+                            ></video>
+                        </div>
+                    </div> 
+
+                    <div class="video-container1">
+                        <div class="video-content1">
+                            <p>Mono + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/水星记/spatialize.png"
+                                src="assets/wav/sing/水星记/spatialize.mp4"
+                            ></video>
+                        </div>
+
+                        <div class="video-content1">
+                            <p>Rmssinger + SP</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/水星记/rmssinger.png"
+                                src="assets/wav/sing/水星记/rmssinger.mp4"
+                            ></video>
+                        </div>
+                        <div class="video-content1">
+                            <p>ISDrama(sing)</p>
+                            <video
+                                id="myVideo"
+                                controls
+                                poster="assets/wav/sing/水星记/isdrama.png"
+                                src="assets/wav/sing/水星记/isdrama.mp4"
+                            ></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+    </script>
+</body>
+</html>

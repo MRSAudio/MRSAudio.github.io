@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRSAudio</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script src="assets/js/basic.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="png" href="assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style>
+        .index-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+        .index-container a {
+            color: rgb(74, 183, 162);
+            margin-bottom: 20px;
+        }
+        .index-container a:hover {
+            color: rgb(26, 97, 83);
+        }
+</style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="DataSet Page/speech.html">DataSet</a>
+            <a href="Audio spatialization Page/speech.html">Audio Spatialization</a>
+            <a href="TTS.html">Spatial TTS</a>
+            <a href="Spatial music.html">Spatial Music</a>
+            <a href="Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>MRSAudio: A Large-Scale Multimodal Recorded Spatial Audio Dataset with Refined Annotations</h1>
+            </div>
+            <div class="text-content">
+                <p>The dataset comprises four real-world scenarios: <strong>MRSSpeech, MRSLife, MRSMusic, and MRSSing,</strong> each with multimodal annotations for spatial audio research</p>
+            </div>
+             <div class="follow">
+                <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+            <section id="part1" class="content-section">
+                <h1>Abstract</h1>
+                <section id="part1.1">
+                    <p>Humans rely on multisensory integration to perceive spatial environments, where
+                        auditory cues enable sound source localization in three-dimensional space. Despite
+                        the critical role of spatial audio in immersive technologies such as VR/AR, most
+                        existing multimodal datasets provide only monaural audio, which limits the devel5 opment of spatial audio generation and understanding. To address these challenges,
+                        we introduce MRSAudio, a large-scale multimodal spatial audio dataset designed to
+                        advance research in spatial audio understanding and generation. MRSAudio spans
+                        four distinct components: MRSLife, MRSSpeech, MRSMusic, and MRSSing,
+                        covering diverse real-world scenarios. The dataset includes synchronized binaural
+                        and ambisonic audio, exocentric and egocentric video, motion trajectories, and
+                        fine-grained annotations such as transcripts, phoneme boundaries, lyrics, scores,
+                        and prompts. To demonstrate the utility and versatility of MRSAudio, we establish
+                        five foundational tasks: audio spatialization, and spatial text to speech, spatial
+                        singing voice synthesis, spatial music generation and sound event localization and
+                        detection. Results show that MRSAudio enables high-quality spatial modeling and
+                        supports a broad range of spatial audio research.</p>
+                    <div class="img-container">
+                        <img src="assets/photo/head.png" alt="head">
+                    </div>
+                </section>
+            </section>
+
+            <section id="part1" class="content-section">
+                <h1>Introduction</h1>
+                <p>In this paper, we present MRSAudio, a 500-hour large-scale multimodal spatial audio dataset designed to support both spatial audio understanding and generation. It integrates high-fidelity spatial recordings with synchronized video, 3D pose tracking, and rich semantic annotations, enabling comprehensive modeling of real-world auditory scenes. As shown in Figure~\ref{fig:com}, the dataset comprises four subsets, each targeting distinct tasks and scenarios.</p>
+                <ul>
+                    <li><strong>MRSLife</strong> (150 h) captures daily activities such as board games, cooking, and office work, using egocentric video and FOA audio annotated with sound events and speech transcripts.</li>
+                    <li><strong>MRSSpeech</strong> (200 h) includes binaural conversations from 50 speakers across diverse indoor environments, paired with video, 3D source positions, and complete scripts.</li>
+                    <li><strong>MRSSing</strong> (75 h) features high-quality solo singing performances in Chinese, English, German, and French by 20 vocalists, each aligned with time-stamped lyrics and corresponding musical scores.</li>
+                    <li><strong>MRSMusic</strong> (75 h) offers spatial recordings of 23 Traditional Chinese, Western and Electronic instruments, with symbolic score annotations that support learning-based methods for symbolic-to-audio generation and fine-grained localization.</li>
+                </ul>
+                <p>Together, these four subsets support a broad spectrum of spatial audio research problems, including event detection, sound localization, and binaural or ambisonic audio generation. By pairing spatial audio with synchronized exocentric and egocentric video, geometric tracking, and detailed semantic labels, MRSAudio enables new research directions in multimodal spatial understanding and cross-modal generation.</p>
+                <div class="img-container">
+                        <img src="../assets/photo/dataset/table1.png" alt="head" style="margin-top: 5%;">
+                </div>
+
+                <h1>Pipeline</h1>
+                <div class="img-container">
+                    <img src="../assets/photo/dataset/figure2.png" alt="head">
+                </div>
+                <div class="text-container4" style="text-align: center; margin-bottom: 5%;">
+                    <p>The construction of MRSAudio is carried out in four steps: Planning, Recording, Annotation and Post-Processing.</p>
+                </div>
+
+                <h1>Statistics</h1>
+                <div class="img-container">
+                        <img src="assets/photo/dataset/figure3.png" alt="head">
+                </div>
+            </section>
+
+            <section id="part2" class="content-section">
+                <h1>Index</h1>
+                <div class="index-container">
+                    <h2>DataSet & Demo</h2>
+                    <a href="DataSet Page/speech.html">There is the link.</a>
+
+                    <h2>Audio Spatialization</h2>
+                    <a href="Audio spatialization Page/speech.html">There is the link.</a>
+
+                    <h2>Spatial TTS</h2>
+                    <a href="TTS.html">There is the link.</a>
+
+                    <h2>Spatial Music</h2>
+                    <a href="Spatial music.html">There is the link.</a>
+
+                    <h2>Spatial Singing</h2>
+                    <a href="Spatial sing.html">There is the link.</a>
+                </div>
+            </section>
+        </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+    </script>
+</body>
+</html>

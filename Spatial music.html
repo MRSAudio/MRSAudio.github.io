@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial music</title>
+    <!-- 添加 Kirang Haerang 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- 添加 Ranga 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加 Montserrat 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 添加 Do Hyeon 字体 -->
+    <link href="https://fonts.font.im/css?family=Do+Hyeon" rel="stylesheet">
+    <!-- 确保 jQuery 在其他脚本之前加载 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sub-style.css">
+    <link rel="stylesheet" href="../assets/css/audio.css">
+    <link rel="icon" type="png" href="assets/photo/logo.ico">
+
+    <!-- 添加新的样式 -->
+    <style> 
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <h1 class="logo">MRSAudio</h1>
+        <ul class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="DataSet Page/speech.html">DataSet</a>
+            <a href="Audio spatialization Page/speech.html">Audio Spatialization</a>
+            <a href="TTS.html">Spatial TTS</a>
+            <a href="Spatial music.html" class="active">Spatial Music</a>
+            <a href="Spatial sing.html">Spatial Singing</a>
+        </ul>
+    </nav>
+
+    <!-- 目录区 -->
+     <div class="page-title-bg">
+            <div class="title-content">
+                <h1>Spatial Music</h1>
+                <div class="text-content">
+                <p><strong>Spatial Music</strong> redefines composition by orchestrating sound movement through multidimensional acoustic environments, transforming live performances and installations into dynamic auditory journeys.</p>
+                </div>
+            </div>
+             <div class="follow">
+               <ul class="follow_list">
+                    <li><a href="http://github.com/MRSAudio/MRSAudio_Main" target="_blank"><img src="assets/photo/github.png" alt=""></a> <p style="color: white;">code</p></li>
+                    <li><a href="https://huggingface.co/datasets/verstar/MRSAudio" target="_blank"><img src="assets/photo/huggingface.png" alt=""></a><p style="color: white;">data</p></li>
+                </ul>
+            </div>
+    </div>
+
+    
+    <!-- 主要内容区 -->
+    <main>
+        <div class="main-container">  
+        <div class="content-area">
+           <div class="hint-container">
+                    <img src="../assets/photo/headphone.png" alt="headphone">
+                    <p>Please wear headphones to listen.</p>
+                </div>
+                <h1>Demo</h1>
+            
+
+            <div class="audio-container">
+                <div class="text-container4">
+                        <div class="img-container">
+                            <img src="assets/instrument picture/Cello.png" style="width: 20%;">
+                        </div>
+                        <p><strong>Instrument: </strong> Cello</p>
+                        <p><strong>Spatial Prompt: </strong> [STATIC] Source locates at left-front down quadrant, and pauses in left-front down quadrant.</p>
+                </div>
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/大提琴/binaural.png"
+                            src="assets/wav/music/大提琴/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/大提琴/spatialize.png"
+                            src="assets/wav/music/大提琴/spatialize.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>Make-An-Audio + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/大提琴/maa2.png"
+                            src="assets/wav/music/大提琴/maa2.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(music)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/大提琴/isdrama.png"
+                            src="assets/wav/music/大提琴/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audio-container">
+                <div class="text-container4">
+                        <div class="img-container">
+                            <img src="assets/instrument picture/Clarinet.png" style="width: 18%;">
+                        </div>
+                        <p><strong>Instrument: </strong> Clarinet</p>
+                        <p><strong>Spatial Prompt: </strong> [Static] Source locates at further right-back down quadrant, and pauses in further right-back down quadrant.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/单簧管/binaural.png"
+                            src="assets/wav/music/单簧管/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/单簧管/spatialize.png"
+                            src="assets/wav/music/单簧管/spatialize.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>Make-An-Audio + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/单簧管/maa2.png"
+                            src="assets/wav/music/单簧管/maa2.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(music)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/单簧管/isdrama.png"
+                            src="assets/wav/music/单簧管/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audio-container">
+                <div class="text-container4">
+                        <div class="img-container">
+                            <img src="assets/instrument picture/Saxophone.png" style="width: 12%;">
+                        </div>
+                        <p><strong>Instrument: </strong> Saxophone</p>
+                        <p><strong>Spatial Prompt: </strong> [Static] Source locates at further right-front down quadrant, and pauses in furtherright-front down quadrant.</p>
+                </div>
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/萨克斯/binaural.png"
+                            src="assets/wav/music/萨克斯/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/萨克斯/spatialize.png"
+                            src="assets/wav/music/萨克斯/spatialize.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>Make-An-Audio + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/萨克斯/maa2.png"
+                            src="assets/wav/music/萨克斯/maa2.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(music)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/萨克斯/isdrama.png"
+                            src="assets/wav/music/萨克斯/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audio-container">
+               <div class="text-container4">
+                        <div class="img-container">
+                            <img src="assets/instrument picture/Sheng.png" style="width: 12%;">
+                        </div>
+                        <p><strong>Instrument: </strong> Sheng</p>
+                        <p><strong>Spatial Prompt: </strong> [Static] Source locates at further right-front down quadrant, and pauses in furtherright-front down quadrant.</p>
+                </div>
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/笙/binaural.png"
+                            src="assets/wav/music/笙/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/笙/spatialize.png"
+                            src="assets/wav/music/笙/spatialize.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>Make-An-Audio + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/笙/maa2.png"
+                            src="assets/wav/music/笙/maa2.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(music)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/笙/isdrama.png"
+                            src="assets/wav/music/笙/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="audio-container">
+                <div class="text-container4">
+                        <div class="img-container">
+                            <img src="assets/instrument picture/Xiao.png" style="width: 50%;">
+                        </div>
+                        <p><strong>Instrument: </strong> Sheng</p>
+                        <p><strong>Spatial Prompt: </strong> [Static] Source locates at further right-front down quadrant, and pauses in furtherright-front down quadrant.</p>
+                </div>
+                <div class="video-container1">
+                    <div class="video-content1">
+                        <p>GT</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/箫/binaural.png"
+                            src="assets/wav/music/箫/binaural.mp4"
+                        ></video>
+                    </div>
+                </div> 
+
+                <div class="video-container1">
+
+                    <div class="video-content1">
+                        <p>Mono + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/箫/spatialize.png"
+                            src="assets/wav/music/箫/spatialize.mp4"
+                        ></video>
+                    </div>
+
+                    <div class="video-content1">
+                        <p>Make-An-Audio + SP</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/箫/maa2.png"
+                            src="assets/wav/music/箫/maa2.mp4"
+                        ></video>
+                    </div>
+                    <div class="video-content1">
+                        <p>ISDrama(music)</p>
+                        <video
+                            id="myVideo"
+                            controls
+                            poster="assets/wav/music/箫/isdrama.png"
+                            src="assets/wav/music/箫/isdrama.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </main>
+
+
+    <!-- 脚本区 -->
+    <script>
+    </script>
+</body>
+</html>
